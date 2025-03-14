@@ -1,5 +1,4 @@
 # small comment for branch to trigger full build
-# ami
 # small agin to test this shit out 
 terraform {
   required_version = "~> 1.8"
