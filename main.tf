@@ -1,3 +1,4 @@
+# small comment for branch to trigger full build
 terraform {
   required_version = "~> 1.8"
   required_providers {
