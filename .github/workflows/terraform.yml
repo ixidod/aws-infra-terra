@@ -1,0 +1,39 @@
+name: Terraform aws ec2 deployment
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ue-west-2
+      AWS_ROLE_ARM: arn:aws:iam::793163288981:role/GitHubOIDCRole
+      TF_VAR_ami_id: ami-09a2a0f7d2db8baca
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.x
+
+      - name: terraform init
+        run: terraform init
+
+      - name: terrafrom validate
+        run: terraform validate
+
+      - name: terraform plan
+        run: terraform plan -out=tfplan
+        if: github.event_name == 'pull_request'
+
+      - name: terrafrom apply
+        if: github.ref == 'refs/head/master' && github.event_name == 'push'
+        run: terraform apply -auto-approve tfplan
