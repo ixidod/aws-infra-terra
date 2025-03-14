@@ -84,23 +84,9 @@ The GitHub Actions pipeline automates:
 
 ---
 
-## Monitoring & Observability
 
-Integrate with:
 
-- AWS CloudWatch
-- External monitoring tools (Datadog, New Relic)
 
----
 
-## Cleanup
-
-To manually destroy infrastructure, trigger a manual GitHub Actions workflow (optional).
-
----
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 
