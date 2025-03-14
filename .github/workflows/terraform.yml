@@ -16,7 +16,7 @@ jobs:
     env:
       AWS_REGION: ue-west-2
       AWS_ROLE_ARM: arn:aws:iam::793163288981:role/GitHubOIDCRole
-      TF_VAR_ami_id: ami-09a2a0f7d2db8baca
+      TF_VAR_ami_id: ami-04c376b9db51e51bd
 
     steps:
       - uses: actions/checkout@v4
